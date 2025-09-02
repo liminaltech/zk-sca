@@ -1,0 +1,10 @@
+{
+  "resolvable_with": "Cargo",
+  "dependencies": [
+    {
+      "name": "ahash",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.2.19"
+    }
+  ]
+}

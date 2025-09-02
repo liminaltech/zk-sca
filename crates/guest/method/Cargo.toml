@@ -1,0 +1,14 @@
+[package]
+name = "sca"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+cargo-lock = { version = "10.1.0", default-features = false }
+cargo-manifest = { version = "0.19.1", default-features = false }
+hashbrown = { version = "0.15", default-features = false, features = ["alloc"] }
+risc0-zkvm = { version = "2.0.2", features = ["heap-embedded-alloc"] }
+semver = { version = "1.0", default-features = false }
+zk-sca-guest-abi = { path = "../../guest-abi" }
+zk-sca-guest-abi-utils = { path = "../../guest-abi-utils" }

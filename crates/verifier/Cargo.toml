@@ -1,0 +1,10 @@
+[package]
+name = "zk-sca-verifier"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+risc0-zkvm = "2.0.2"
+zk-sca-guest = { path = "../guest" }
+zk-sca-guest-abi = { path = "../guest-abi" }
+zk-sca-types = { path = "../types" }

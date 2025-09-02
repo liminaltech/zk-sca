@@ -1,0 +1,16 @@
+[package]
+name = "zk-sca-prover"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+once_cell = "1.21.3"
+risc0-zkvm = "2.0.2"
+thiserror = "2.0.12"
+zk-sca-guest = { path = "../guest" }
+zk-sca-guest-abi = { path = "../guest-abi" }
+zk-sca-guest-abi-utils = { path = "../guest-abi-utils", features = ["std"] }
+zk-sca-types = { path = "../types" }
+
+[dev-dependencies]
+serde_json = "1.0"

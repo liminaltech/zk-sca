@@ -1,0 +1,11 @@
+[package]
+name = "non_virtual_workspace_vuln"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+base64 = "0.2.1"
+
+[workspace]
+members = [".", "a"]
+resolver = "2"

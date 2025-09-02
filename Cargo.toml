@@ -1,0 +1,14 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/guest-abi",
+    "crates/guest-abi-utils",
+    "crates/guest/method",
+    "crates/guest",
+    "crates/prover",
+    "crates/verifier",
+    "crates/types",
+    "crates/cli",
+]
+
+exclude = ["fixtures", "fixtures_sources"]

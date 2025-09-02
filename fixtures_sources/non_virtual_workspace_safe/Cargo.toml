@@ -1,0 +1,11 @@
+[package]
+name = "non_virtual_workspace_safe"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+base64 = "0.5.2"
+
+[workspace]
+members = [".", "a"]
+resolver = "2"

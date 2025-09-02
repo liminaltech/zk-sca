@@ -1,0 +1,18 @@
+[package]
+name = "zk-sca-guest-abi"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+serde = { version = "1.0", default-features = false, features = [
+  "derive",
+  "alloc",
+] }
+serde-big-array = { version = "0.3", default-features = false, features = [
+  "const-generics",
+] }
+zk-sca-types = { version = "0.1.0", path = "../types" }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(test)'] }
