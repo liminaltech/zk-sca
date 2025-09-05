@@ -1,0 +1,11 @@
+[package]
+name = "zk-sca-guest"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[build-dependencies]
+risc0-build = "2.0.2"
+
+[package.metadata.risc0]
+methods = ["method"]

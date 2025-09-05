@@ -1,0 +1,20 @@
+[package]
+name = "zk-sca-types"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+nonempty = { version = "0.11.0", default-features = false, features = [
+  "serialize",
+] }
+semver = { version = "1.0", default-features = false, features = ["serde"] }
+serde = { version = "1.0", default-features = false, features = [
+  "derive",
+  "alloc",
+] }
+spdx = { version = "0.10.8", default-features = false }
+thiserror = { version = "2.0.12", default-features = false }
+
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(test)'] }

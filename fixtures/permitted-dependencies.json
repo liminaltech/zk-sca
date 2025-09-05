@@ -1,0 +1,465 @@
+{
+  "resolvable_with": "Cargo",
+  "dependencies": [
+    {
+      "name": "ahash",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.2.19"
+    },
+    {
+      "name": "aho-corasick",
+      "license": "Unlicense OR MIT",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "anyhow",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "1.0.0"
+    },
+    {
+      "name": "autocfg",
+      "license": "Apache-2.0 OR MIT",
+      "min_safe_version": "0.0.1"
+    },
+    {
+      "name": "base64",
+      "license": "MIT",
+      "min_safe_version": "0.5.2"
+    },
+    {
+      "name": "bitflags",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "block-buffer",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "byteorder",
+      "license": "Unlicense",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "bytes",
+      "license": "MIT",
+      "min_safe_version": "0.0.1"
+    },
+    {
+      "name": "cc",
+      "license": "BSL-1.0",
+      "min_safe_version": "0.0.1"
+    },
+    {
+      "name": "cfg-if",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "chrono",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.4.20"
+    },
+    {
+      "name": "crossbeam-utils",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.8.7"
+    },
+    {
+      "name": "digest",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.6.1"
+    },
+    {
+      "name": "either",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "fastrand",
+      "license": "Apache-2.0 OR MIT",
+      "min_safe_version": "1.0.0"
+    },
+    {
+      "name": "fnv",
+      "license": "Apache-2.0  OR  MIT",
+      "min_safe_version": "1.0.0"
+    },
+    {
+      "name": "futures",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.1"
+    },
+    {
+      "name": "futures-channel",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.2.0-alpha"
+    },
+    {
+      "name": "futures-core",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.2.0-alpha"
+    },
+    {
+      "name": "futures-io",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "futures-sink",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.2.0-alpha"
+    },
+    {
+      "name": "futures-task",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.3.6"
+    },
+    {
+      "name": "futures-util",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.2.0"
+    },
+    {
+      "name": "generic-array",
+      "license": "MIT",
+      "min_safe_version": "0.0.1"
+    },
+    {
+      "name": "getrandom",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.0.0"
+    },
+    {
+      "name": "h2",
+      "license": "MIT",
+      "min_safe_version": "0.3.26"
+    },
+    {
+      "name": "hashbrown",
+      "license": "Apache-2.0 OR MIT",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "heck",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "http",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.20"
+    },
+    {
+      "name": "http-body",
+      "license": "MIT",
+      "min_safe_version": "0.0.0"
+    },
+    {
+      "name": "hyper",
+      "license": "MIT",
+      "min_safe_version": "0.14.12"
+    },
+    {
+      "name": "idna",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "1.0.0"
+    },
+    {
+      "name": "indexmap",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.0.1"
+    },
+    {
+      "name": "itertools",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.0.2"
+    },
+    {
+      "name": "itoa",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "libc",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "linux-raw-sys",
+      "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+      "min_safe_version": "0.0.0"
+    },
+    {
+      "name": "lock_api",
+      "license": "Apache-2.0 OR MIT",
+      "min_safe_version": "0.4.2"
+    },
+    {
+      "name": "log",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "memchr",
+      "license": "Unlicense OR MIT",
+      "min_safe_version": "0.1.1"
+    },
+    {
+      "name": "memoffset",
+      "license": "MIT",
+      "min_safe_version": "0.6.2"
+    },
+    {
+      "name": "miniz_oxide",
+      "license": "MIT",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "num-integer",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.32"
+    },
+    {
+      "name": "num-traits",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.32"
+    },
+    {
+      "name": "num_cpus",
+      "license": "MIT",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "once_cell",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.0.3"
+    },
+    {
+      "name": "parking_lot",
+      "license": "Apache-2.0 OR MIT",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "parking_lot_core",
+      "license": "Apache-2.0 OR MIT",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "percent-encoding",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "1.0.0"
+    },
+    {
+      "name": "pin-project-lite",
+      "license": "Apache-2.0 OR MIT",
+      "min_safe_version": "0.1.12"
+    },
+    {
+      "name": "pin-utils",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0-alpha.1"
+    },
+    {
+      "name": "ppv-lite86",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.1"
+    },
+    {
+      "name": "proc-macro2",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "quote",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "rand",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.1"
+    },
+    {
+      "name": "rand_chacha",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "rand_core",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.3.1"
+    },
+    {
+      "name": "regex",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "1.5.5"
+    },
+    {
+      "name": "regex-automata",
+      "license": "Unlicense OR MIT",
+      "min_safe_version": "0.0.1"
+    },
+    {
+      "name": "regex-syntax",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "rustix",
+      "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+      "min_safe_version": "0.0.0"
+    },
+    {
+      "name": "rustls",
+      "license": "Apache-2.0 OR ISC OR MIT",
+      "min_safe_version": "0.21.11"
+    },
+    {
+      "name": "ryu",
+      "license": "BSD-2-Clause AND BSL-1.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "scopeguard",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "semver",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.20"
+    },
+    {
+      "name": "serde_derive",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.8.4"
+    },
+    {
+      "name": "serde_json",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.5.0"
+    },
+    {
+      "name": "sha2",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.6.0"
+    },
+    {
+      "name": "slab",
+      "license": "MIT",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "smallvec",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.6.14"
+    },
+    {
+      "name": "socket2",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.3.16"
+    },
+    {
+      "name": "spin",
+      "license": "MIT",
+      "min_safe_version": "0.5.2"
+    },
+    {
+      "name": "strsim",
+      "license": "MIT",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "syn",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.4.0"
+    },
+    {
+      "name": "thiserror",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "1.0.0"
+    },
+    {
+      "name": "thiserror-impl",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "1.0.0"
+    },
+    {
+      "name": "time",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.2.0"
+    },
+    {
+      "name": "tokio-util",
+      "license": "MIT",
+      "min_safe_version": "0.0.0"
+    },
+    {
+      "name": "toml",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "tracing",
+      "license": "MIT",
+      "min_safe_version": "0.0.0"
+    },
+    {
+      "name": "tracing-core",
+      "license": "MIT",
+      "min_safe_version": "0.0.0"
+    },
+    {
+      "name": "typenum",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.0.1"
+    },
+    {
+      "name": "unicode-ident",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "1.0.0"
+    },
+    {
+      "name": "unicode-width",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.0.1"
+    },
+    {
+      "name": "version_check",
+      "license": "MIT",
+      "min_safe_version": "0.1.0"
+    },
+    {
+      "name": "windows-sys",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.0.0"
+    },
+    {
+      "name": "windows_aarch64_msvc",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.25.0"
+    },
+    {
+      "name": "windows_i686_gnu",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.23.0"
+    },
+    {
+      "name": "windows_i686_msvc",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.22.1"
+    },
+    {
+      "name": "windows_x86_64_gnu",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.23.0"
+    },
+    {
+      "name": "windows_x86_64_msvc",
+      "license": "MIT OR Apache-2.0",
+      "min_safe_version": "0.22.1"
+    }
+  ]
+}
