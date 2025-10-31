@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  RISC0_RUST: "1.88.0"
+  RISC0_VERSION: "2.3.2"
+  RISC0_CPP: "2024.1.5"
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up base Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+
+      - name: Cache Cargo build
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            . -> target
+
+      - name: Cache RISC Zero toolchain
+        uses: actions/cache@v4
+        with:
+          path: ~/.risc0
+          key: rzup-${{ env.RISC0_RUST }}-${{ env.RISC0_VERSION }}-${{ env.RISC0_CPP }}
+          restore-keys: |
+            rzup-${{ env.RISC0_RUST }}-${{ env.RISC0_VERSION }}-
+
+      - name: Install rzup toolchain
+        run: |
+          curl -L https://risczero.com/install | bash
+          echo "$HOME/.risc0/bin" >> "$GITHUB_PATH"
+          rzup install rust $RISC0_RUST
+          rzup install r0vm $RISC0_VERSION
+          rzup install cargo-risczero $RISC0_VERSION
+          rzup install cpp $RISC0_CPP
+          rzup show
+
+      - name: Build workspace
+        run: cargo build --workspace --locked
+
+      - name: Run tests
+        run: cargo test --workspace --exclude sca --locked
