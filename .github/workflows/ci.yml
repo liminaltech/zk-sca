@@ -46,10 +46,15 @@ jobs:
           restore-keys: |
             rzup-${{ env.RISC0_RUST }}-${{ env.RISC0_VERSION }}-
 
-      - name: Install rzup toolchain
+      - name: Install rzup
         run: |
           curl -L https://risczero.com/install | bash
-          echo "$HOME/.risc0/bin" >> "$GITHUB_PATH"
+
+      - name: Add rzup to PATH
+        run: echo "$HOME/.risc0/bin" >> "$GITHUB_PATH"
+
+      - name: Install RISC Zero components
+        run: |
           rzup install rust $RISC0_RUST
           rzup install r0vm $RISC0_VERSION
           rzup install cargo-risczero $RISC0_VERSION
