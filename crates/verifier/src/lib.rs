@@ -4,8 +4,7 @@
 #![deny(clippy::all, clippy::pedantic, clippy::nursery)]
 #![allow(clippy::missing_errors_doc)]
 
-use risc0_zkvm::{Journal, Receipt};
-use zk_sca_guest::SCA_ID;
+use risc0_zkvm::{Journal, Receipt, sha::Digest};
 use zk_sca_guest_abi::GuestOutput;
 use zk_sca_types::{LicensePolicy, PermittedDependencies};
 
@@ -37,12 +36,12 @@ impl std::fmt::Display for VerifierError {
 
 impl std::error::Error for VerifierError {}
 
-/// Verify the proof’s `Receipt` against the program ID (`SCA_ID`).
+/// Verify the proof’s `Receipt` against the program image ID.
 ///
 /// Returns `Ok(())` on success or a `VerifierError` with the failure reason.
-pub fn verify_receipt(receipt: &Receipt) -> Result<(), VerifierError> {
+pub fn verify_receipt(receipt: &Receipt, image_id: Digest) -> Result<(), VerifierError> {
     receipt
-        .verify(SCA_ID)
+        .verify(image_id)
         .map_err(|e| VerifierError::ReceiptVerificationFailed(format!("{e:?}")))
 }
 
