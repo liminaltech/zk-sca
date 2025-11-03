@@ -1,3 +1,4 @@
 target
 *.bin
+!fixtures/valid-receipt.bin
 profile.pb

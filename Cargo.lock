@@ -4640,6 +4640,8 @@ dependencies = [
 name = "zk-sca-verifier"
 version = "0.2.0"
 dependencies = [
+ "bincode",
+ "hex",
  "risc0-zkvm",
  "zk-sca-guest-abi",
  "zk-sca-types",
