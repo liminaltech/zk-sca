@@ -13,7 +13,7 @@ use std::{
     path::{Path, PathBuf},
     sync::Arc,
 };
-use zk_sca_prover::{Prover, ProverError};
+use zk_sca_prover::{Prover, ProverError, program_id_digest};
 use zk_sca_types::{
     LicensePolicy, PackageManager, PackageManagerSpec, PermittedDependencies, SourceBundle, Version,
 };
@@ -185,16 +185,18 @@ fn prove_cmd(
     let bytes = bincode::serialize(&receipt)?;
     fs::File::create(&output_path)?.write_all(&bytes)?;
 
+    let program_id_hex = hex::encode(program_id_digest().as_bytes());
+    println!("Program ID: {program_id_hex}");
+
     println!("Success! Receipt written to '{}'", output_path.display());
     Ok(())
 }
 
-fn parse_program_id_hex(hex_str: &str) -> Result<Digest, DynError> {
-    let bytes =
-        <Vec<u8>>::from_hex(hex_str).map_err(|e| format!("invalid --program-id-hex: {e}"))?;
+fn parse_program_id(hex_str: &str) -> Result<Digest, DynError> {
+    let bytes = <Vec<u8>>::from_hex(hex_str).map_err(|e| format!("invalid --program-id: {e}"))?;
     if bytes.len() != 32 {
         return Err(format!(
-            "invalid --program-id-hex: expected 32 bytes (64 hex chars), got {} bytes",
+            "invalid --program-id: expected 32 bytes (64 hex chars), got {} bytes",
             bytes.len()
         )
         .into());
@@ -212,7 +214,7 @@ fn verify_cmd(
     let data = fs::read(receipt_path)?;
     let receipt: Receipt = bincode::deserialize(&data)?;
 
-    let image_id = parse_program_id_hex(program_id)?;
+    let image_id = parse_program_id(program_id)?;
     verify_receipt(&receipt, image_id)?;
 
     if print_journal {
