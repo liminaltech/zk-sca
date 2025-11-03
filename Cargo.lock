@@ -4616,7 +4616,6 @@ dependencies = [
 name = "zk-sca-prover"
 version = "0.1.0"
 dependencies = [
- "once_cell",
  "risc0-zkvm",
  "serde_json",
  "thiserror 2.0.17",

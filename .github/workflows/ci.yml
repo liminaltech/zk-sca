@@ -29,7 +29,8 @@ jobs:
       - name: Set up base Rust
         uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
-          toolchain: stable
+          toolchain: 1.88.0
+          components: clippy, rustfmt
 
       - name: Add cargo to PATH
         run: echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
@@ -62,6 +63,12 @@ jobs:
           rzup install cargo-risczero $RISC0_VERSION
           rzup install cpp $RISC0_CPP
           rzup show
+
+      - name: Clippy
+        env:
+          RISC0_SKIP_BUILD: "1"
+        run: |
+          cargo clippy --workspace --locked
 
       - name: Build workspace
         run: cargo build --workspace --locked

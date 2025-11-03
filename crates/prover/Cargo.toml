@@ -8,7 +8,6 @@ default = []
 cuda = ["risc0-zkvm/cuda"]
 
 [dependencies]
-once_cell = "1.21.3"
 risc0-zkvm = "~2.3"
 thiserror = "2.0.12"
 zk-sca-guest = { path = "../guest" }

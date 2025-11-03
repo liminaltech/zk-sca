@@ -1,13 +1,17 @@
-use once_cell::sync::Lazy;
-use std::{collections::HashMap, fs, path::Path, sync::Mutex};
+use std::{
+    collections::HashMap,
+    fs,
+    path::Path,
+    sync::{LazyLock, Mutex},
+};
 use zk_sca_guest_abi::PartialMerkleArchive;
 use zk_sca_guest_abi_utils::build_merkle_archive;
 use zk_sca_types::{
     PackageManager, PackageManagerSpec, PermittedDependencies, SourceBundle, Version,
 };
 
-static FIXTURE_CACHE: Lazy<Mutex<HashMap<String, Vec<u8>>>> =
-    Lazy::new(|| Mutex::new(HashMap::new()));
+static FIXTURE_CACHE: LazyLock<Mutex<HashMap<String, Vec<u8>>>> =
+    LazyLock::new(|| Mutex::new(HashMap::new()));
 
 fn load_fixture(name: &str) -> Vec<u8> {
     let mut cache = FIXTURE_CACHE.lock().unwrap();

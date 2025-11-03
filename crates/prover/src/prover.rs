@@ -1,7 +1,6 @@
 use crate::{EnvVarGuard, ProverError};
-use once_cell::sync::Lazy;
 use risc0_zkvm::{ExecutorEnv, Receipt, default_prover};
-use std::sync::Mutex;
+use std::sync::{LazyLock, Mutex};
 use zk_sca_guest::SCA_ELF;
 use zk_sca_guest_abi::{self as abi};
 use zk_sca_guest_abi_utils::build_merkle_archive;
@@ -121,7 +120,7 @@ pub struct ProverConfig {
 }
 
 /// Global lock to prevent concurrent env-var races in `EnvVarGuard`.
-static PROVE_LOCK: Lazy<Mutex<()>> = Lazy::new(|| Mutex::new(()));
+static PROVE_LOCK: LazyLock<Mutex<()>> = LazyLock::new(|| Mutex::new(()));
 
 impl ProverConfig {
     /// Generate the proof using this configuration.
