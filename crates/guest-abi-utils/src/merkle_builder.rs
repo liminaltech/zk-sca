@@ -62,7 +62,7 @@ pub fn build_merkle_archive(src_bundle: &SourceBundle) -> Result<PartialMerkleAr
             .map(|p| p.to_string_lossy().into_owned())
             .unwrap_or_default();
         Ok(match src_bundle.resolved_with().manager() {
-            PackageManager::Cargo { .. } => {
+            PackageManager::Cargo => {
                 name == "Cargo.toml"
                     || name.ends_with("/Cargo.toml")
                     || name == "Cargo.lock"

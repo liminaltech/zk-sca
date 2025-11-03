@@ -5,14 +5,15 @@
 #![allow(clippy::too_many_arguments)]
 
 use clap::{Parser, Subcommand};
-use risc0_zkvm::Receipt;
+use hex::FromHex;
+use risc0_zkvm::{Receipt, sha::Digest};
 use std::{
     env, fs,
     io::Write,
     path::{Path, PathBuf},
     sync::Arc,
 };
-use zk_sca_prover::{Prover, ProverError};
+use zk_sca_prover::{Prover, ProverError, program_id_digest};
 use zk_sca_types::{
     LicensePolicy, PackageManager, PackageManagerSpec, PermittedDependencies, SourceBundle, Version,
 };
@@ -72,6 +73,10 @@ enum Cmd {
         #[clap(short = 'r', long = "receipt")]
         receipt: PathBuf,
 
+        /// Program image ID used by the prover (64-character hex string)
+        #[clap(short = 'i', long = "program-id", value_name = "HEX")]
+        program_id: String,
+
         /// Print the journal contents in JSON format if verification succeeds
         #[clap(short = 'j', long = "print-journal")]
         print_journal: bool,
@@ -105,8 +110,9 @@ fn main() -> Result<(), DynError> {
         ),
         Cmd::Verify {
             receipt,
+            program_id,
             print_journal,
-        } => verify_cmd(&receipt, print_journal),
+        } => verify_cmd(&receipt, &program_id, print_journal),
     }
 }
 
@@ -179,15 +185,37 @@ fn prove_cmd(
     let bytes = bincode::serialize(&receipt)?;
     fs::File::create(&output_path)?.write_all(&bytes)?;
 
+    let program_id_hex = hex::encode(program_id_digest().as_bytes());
+    println!("Program ID: {program_id_hex}");
+
     println!("Success! Receipt written to '{}'", output_path.display());
     Ok(())
 }
 
-fn verify_cmd(receipt_path: &PathBuf, print_journal: bool) -> Result<(), DynError> {
+fn parse_program_id(hex_str: &str) -> Result<Digest, DynError> {
+    let bytes = <Vec<u8>>::from_hex(hex_str).map_err(|e| format!("invalid --program-id: {e}"))?;
+    if bytes.len() != 32 {
+        return Err(format!(
+            "invalid --program-id: expected 32 bytes (64 hex chars), got {} bytes",
+            bytes.len()
+        )
+        .into());
+    }
+    let mut arr = [0u8; 32];
+    arr.copy_from_slice(&bytes);
+    Ok(Digest::from(arr))
+}
+
+fn verify_cmd(
+    receipt_path: &PathBuf,
+    program_id: &str,
+    print_journal: bool,
+) -> Result<(), DynError> {
     let data = fs::read(receipt_path)?;
     let receipt: Receipt = bincode::deserialize(&data)?;
 
-    verify_receipt(&receipt)?;
+    let image_id = parse_program_id(program_id)?;
+    verify_receipt(&receipt, image_id)?;
 
     if print_journal {
         let decoded: DecodedJournal = decode_journal(&receipt.journal)?;

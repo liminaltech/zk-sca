@@ -67,8 +67,7 @@ struct Verifier<'a> {
     root: &'a [u8; 32],
 }
 
-#[allow(clippy::needless_lifetimes)]
-impl<'a> Verifier<'a> {
+impl Verifier<'_> {
     fn verify(self) -> MRes<ValidPartialArchive> {
         let header_count = self.ensure_count_leaf_is_authentic_and_return_count()?;
         let headers = self.ensure_header_leaves_are_authentic_and_parse(header_count)?;

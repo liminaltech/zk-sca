@@ -23,7 +23,10 @@ cargo run -- \
 To verify the resultant proof, run:
 
 ```bash
-cargo run -- verify -r safe.zk-sca.bin -j
+cargo run -- \
+  verify \
+  -r safe.zk-sca.bin \
+  -i <PROGRAM_ID>
 ```
 
 ## Security

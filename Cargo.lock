@@ -1079,9 +1079,9 @@ dependencies = [
 
 [[package]]
 name = "duplicate"
-version = "2.0.0"
+version = "2.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "97af9b5f014e228b33e77d75ee0e6e87960124f0f4b16337b586a6bec91867b1"
+checksum = "8e92f10a49176cbffacaedabfaa11d51db1ea0f80a83c26e1873b43cd1742c24"
 dependencies = [
  "heck",
  "proc-macro2",
@@ -2493,7 +2493,6 @@ dependencies = [
  "quote",
  "syn 2.0.108",
  "version_check",
- "yansi",
 ]
 
 [[package]]
@@ -4438,12 +4437,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "yansi"
-version = "1.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cfe53a6657fd280eaa890a3bc59152892ffa3e30101319d168b781ed6529b049"
-
-[[package]]
 name = "yoke"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4579,7 +4572,7 @@ dependencies = [
 
 [[package]]
 name = "zk-sca-cli"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "bincode",
  "clap",
@@ -4623,7 +4616,6 @@ dependencies = [
 name = "zk-sca-prover"
 version = "0.1.0"
 dependencies = [
- "once_cell",
  "risc0-zkvm",
  "serde_json",
  "thiserror 2.0.17",
@@ -4646,10 +4638,11 @@ dependencies = [
 
 [[package]]
 name = "zk-sca-verifier"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
+ "bincode",
+ "hex",
  "risc0-zkvm",
- "zk-sca-guest",
  "zk-sca-guest-abi",
  "zk-sca-types",
 ]

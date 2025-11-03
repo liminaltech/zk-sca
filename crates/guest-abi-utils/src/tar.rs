@@ -32,5 +32,5 @@ fn parse_octal(input: &[u8]) -> usize {
 /// How many 512-byte blocks are needed to hold `size` bytes.
 #[must_use]
 pub const fn block_count(size: usize) -> usize {
-    (size + 511) / 512
+    size.div_ceil(512)
 }

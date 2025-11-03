@@ -1,12 +1,11 @@
-use once_cell::sync::Lazy;
-use std::sync::Mutex;
+use std::sync::{LazyLock, Mutex};
 use zk_sca_prover::{Prover, ProverError};
 
 mod common;
 use crate::common::{load_cargo_bundle, load_permitted_deps};
 
 /// Global mutex to serialize env-var edits across tests.
-static ENV_LOCK: Lazy<Mutex<()>> = Lazy::new(|| Mutex::new(()));
+static ENV_LOCK: LazyLock<Mutex<()>> = LazyLock::new(|| Mutex::new(()));
 
 fn build_prover(cycle_report: bool, dev_mode: bool) -> Prover {
     let bundle = load_cargo_bundle("safe.tar.gz");

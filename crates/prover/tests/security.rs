@@ -1,6 +1,5 @@
-use once_cell::sync::Lazy;
 use risc0_zkvm::{ExecutorEnv, default_prover};
-use std::sync::Mutex;
+use std::sync::{LazyLock, Mutex};
 use zk_sca_guest::SCA_ELF;
 use zk_sca_guest_abi::{GuestInput, MerkleLeaf, PartialMerkleArchive, ScaError};
 use zk_sca_guest_abi_utils::{block_count, parse_tar_header};
@@ -10,7 +9,7 @@ mod common;
 use crate::common::{load_cargo_archive, load_permitted_deps};
 
 // Protect RISC-0 environment when running tests in parallel.
-static PROVE_LOCK: Lazy<Mutex<()>> = Lazy::new(|| Mutex::new(()));
+static PROVE_LOCK: LazyLock<Mutex<()>> = LazyLock::new(|| Mutex::new(()));
 
 fn prove_should_fail(input: GuestInput, expected: ScaError) {
     let _lock = PROVE_LOCK.lock().unwrap_or_else(|p| p.into_inner());
